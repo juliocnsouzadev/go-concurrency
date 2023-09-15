@@ -2,9 +2,9 @@ package fan_out
 
 import (
 	"context"
-	"fmt"
 	"github.com/juliocnsouzadev/go-concurrency/fake"
 	"github.com/juliocnsouzadev/go-concurrency/model"
+	"log"
 	"sync"
 	"time"
 )
@@ -68,7 +68,7 @@ loop:
 		select {
 		case f.workQueue <- msg:
 		case <-f.ctx.Done():
-			fmt.Println("** message sending cancelled **")
+			log.Println("message sending cancelled")
 			break loop
 		}
 	}

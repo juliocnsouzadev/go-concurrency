@@ -3,6 +3,7 @@ package fake
 import (
 	"fmt"
 	"github.com/juliocnsouzadev/go-concurrency/model"
+	"log"
 	"time"
 )
 
@@ -17,7 +18,7 @@ func (r *RpcMessage) ToString() string {
 
 func DoRPC(msg *RpcMessage) {
 	msgData := msg.ToString()
-	fmt.Println("=> sending message: ", msgData)
+	log.Println("sending message: ", msgData)
 	time.Sleep(100 * time.Millisecond)
-	fmt.Println("=> message (", msgData, ") was sent")
+	log.Println("message (", msgData, ") was sent")
 }
